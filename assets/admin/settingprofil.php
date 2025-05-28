@@ -68,8 +68,9 @@
 					<div class="menubody">
 						
 							<li> <a href="datamobil.php" target="_self"> Data Mobil </a> </li> <br>
-							<li> <a href="transaksi.php"> Transaksi </a> </li><br>
-							<li> <a href="cetak.php"> Laporan </a> </li><br>
+							<li> <a href="pembayaran.php"> Pembayaran </a> </li><br>
+							<li> <a href="penawaran_mobil.php"> Penawaran </a> </li><br>
+							<li> <a href="laporan.php"> Laporan </a> </li><br>
 							<li> <a class="active" href="#"> Setting </a> </li>
 						
 					</div>
@@ -120,18 +121,7 @@
 							 
 						</td>	
 					</tr>
-					<tr>
-						<th> Alamat </th>
-						<td>  : </td>
-						<td> <textarea type="text" style="width: 100%;height: 75px;" name="alamat_user" required> 
-							 <?php echo htmlspecialchars($row['alamat_user']); ?>  </textarea>
-						</td>	
-					</tr>
-					<tr>
-						<th> No Telp </th>
-						<td>  : </td>
-						<td> <input type="text" maxlenght="12" name="notelp_user" value="<?php echo htmlspecialchars($row['notelp_user']); ?> " required>  </td>	
-					</tr>
+					
 					<tr>
 						<th> Alamat Email </th>
 						<td>  : </td>

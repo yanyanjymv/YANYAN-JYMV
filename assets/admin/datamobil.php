@@ -62,7 +62,8 @@
 					<div class="menubody">
 						
 							<li> <a class="active" href="#"> Data Mobil </a> </li> <br>
-							<li> <a href="transaksi.php"> Transaksi </a> </li><br>
+							<li> <a href="pembayaran.php"> Pembayaran </a> </li><br>
+							<li> <a href="penawaran_mobil.php"> Penawaran </a> </li><br>
 							<li> <a href="cetak.php"> Laporan </a> </li><br>
 							<li> <a href="settingprofil.php"> Setting </a> </li>
 						
@@ -83,7 +84,6 @@
 					<a class="btn-secondary btn-sm" href="tambah_datamobil.php"> Tambah</a>
 					<tr>
 						<th> No </th>
-						<th> ID Mobil </th>
 						<th>  Nama Mobil </th>
 						<th> Spesifikasi Mobil </th>
 						<th> Harga </th>
@@ -115,8 +115,7 @@
 				?>	
 				<!-- SCRIPT PHP -->
 					<tr>
-						<td> <?php echo $no; ?> </td>
-						<td> <?php echo $data['id_mobil'];    ?> </td>	
+						<td> <?php echo $no; ?> </td>	
 						<td> <?php echo $data['nm_mobil'];    ?> </td>
 						<td> <?php echo $data['spek_mobil'];  ?> </td>	
 						<td> Rp.<?php echo number_format($data['harga_mobil'],0,",",","); ?> </td>

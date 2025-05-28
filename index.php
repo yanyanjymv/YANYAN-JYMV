@@ -42,7 +42,7 @@
             <h2> Jual Beli Mobil Terbaik Secara Online</h2>
             <br>
             <h3> Untuk Memulai Silahkan Mendaftar Terlebih Dahulu </h3>
-            <a href="signup.php" class="btn-primary"> DAFTAR </a>
+            <a href="signup.php" class="btn-primary"> REGISTRASI </a>
         </div>
     </div>
     <!-- END SLIDER -->     

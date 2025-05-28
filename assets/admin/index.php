@@ -63,10 +63,11 @@ if ($_SESSION['roles'] == 'admin') {
              <a href="#"> CPANEL </a> 
         </div>
             <div class="menubody">
-                <li> <a href="datamobil.php" target="_self"> Data Mobil </a> </li> <br>
-                <li> <a href="transaksi.php"> Transaksi </a> </li><br>
-                <li> <a href="cetak.php"> Cetak Pembayaran </a> </li><br>
-                <li> <a href="settingprofil.php"> Setting </a> </li>
+               <li> <a class="active" href="#"> Data Mobil </a> </li> <br>
+							<li> <a href="pembayaran.php"> Pembayaran </a> </li><br>
+							<li> <a href="penawaran_mobil.php"> Penawaran </a> </li><br>
+							<li> <a href="cetak.php"> Laporan </a> </li><br>
+							<li> <a href="settingprofil.php"> Setting </a> </li>
             </div>
     </div>
 
@@ -101,14 +102,9 @@ if ($_SESSION['roles'] == 'admin') {
                 <td> <?php echo ($row['jk_user'] ?? '') == 'L' ? "Laki-laki" : "Perempuan"; ?> </td>    
             </tr>
             <tr>
-                <th> Alamat </th>
+                <th> Alamat Email</th>
                 <td>  : </td>
-                <td> <?php echo $row['alamat_user'] ?? '-'; ?> </td>    
-            </tr>
-            <tr>
-                <th> No Telp </th>
-                <td>  : </td>
-                <td> <?php echo $row['notelp_user'] ?? '-'; ?> </td>    
+                <td> <?php echo $row['alamat_email'] ?? '-'; ?> </td>    
             </tr>
         </table>
         <?php } ?>

@@ -30,7 +30,8 @@
 			'nama_user' => '', // Sesuaikan dengan kolom di tb_admin
 			'jk_user' => '',
 			'alamat_user' => '',
-			'notelp_user' => ''
+			'notelp_user' => '',
+            'alamat_email' => ''
 		];
 	}
 ?>
@@ -74,34 +75,14 @@
                                 </td>    
                             </tr>
                             <tr>
-                                <th>Alamat</th>
-                                <td>:</td>
-                                <td>
-                                    <textarea rows="5" cols="30" name="alamat_user" required><?php echo htmlspecialchars($row['alamat_user']); ?></textarea>
-                                </td>    
-                            </tr>
-                            <tr>
-                                <th>No Telp</th>
-                                <td>:</td>
-                                <td>
-                                    <input type="text" maxlength="12" name="notelp_user" value="<?php echo htmlspecialchars($row['notelp_user']); ?>" required>
-                                </td>    
-                            </tr>
-                            <tr>
                                 <th>Alamat Email</th>
                                 <td>:</td>
                                 <td>
                                     <input type="text" name="alamat_email" value="<?php echo htmlspecialchars($row['alamat_email']); ?>" required>
                                 </td>    
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn-primary btn-sm" type="submit">Submit</button>
-                                </td>
-                            </tr>
                         </table>
+                        <button  type="submit">Submit</button>
                     </div>
                 </form>
             </div>

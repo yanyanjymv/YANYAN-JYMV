@@ -25,13 +25,7 @@
 
 
 
-					<div class="input-group" >
-							<span class="input-group-addon"><i class="fa fa-address-card fa-fw"> </i> </span>
-							 
-							 <input  class="form-control" pattern="[0-9]{16}" type="text" title="Gunakan nomor untuk KTP" name="ktp" placeholder="No.KTP" maxlength="16" required>
-					</div>	
-
-					<br>
+					
 					
 					<div class="input-group" >
 							<span class="input-group-addon"> <i class="fa fa-user fa-fw"> </i> </span>

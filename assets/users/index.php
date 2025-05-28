@@ -74,15 +74,19 @@
 
 			<!-- Logo -->
 				<div class="logo">
-					<img src="../../img/alimrugi.jpg">
+  					<a href="index.php">
+    					<img src="../../img/alimrugi.jpg" alt="Logo Alimrugi">
+  					</a>
 				</div>
+
 			<!-- Logo -->
 
 				<!-- Navbar -->
 				<div class="navbar">
 				<ul>
-					<li> <a href="#"> Home </a></li>
-					<li> <a href="transaksi.php"> <i> Transaksi>>></i></a></li>
+					<li> <a href="pesanan.php"> <i> Pesanan</i></a></li>
+					<li> <a href="pembayaran.php"> <i> Pembayaran</i></a></li>
+					<li> <a href="penawaran_mobil.php"> <i> Penawaran Mobil</i></a></li>
 					<li style="background-color:#ff4343 ;border-radius: 5%;">
 				</ul>
 
@@ -99,6 +103,9 @@
 			<div class="center">
 				<h1> Selamat Datang di AlimRugi </h1>
 				<h2> Jual Beli Mobil Terbaik Secara Online</h2>
+				<h2> di Alim Rugi anda bisa membeli mobil atau pun menawarkan mobil anda kepada kami<h2>
+				<h3>note : Klik menu Penawaran Mobil Untuk Menawarkan Kepada Kami<h3>
+
 				<br>
 				
 			</div>
@@ -147,7 +154,7 @@
 			</td> </tr>
 			<tr> <td class="tdspek"> <?php echo $data['spek_mobil']; ?> </td> </tr>
 			<tr> <td class="tdharga"> RP.<?php echo number_format($data['harga_mobil'],0,",",".") ;?>  </td> </tr>
-			<tr> <td class="tdaksi"> <a class="btn-beli" href="belicash.php?id_mobil=<?php echo $data['id_mobil'];?>"> Beli Cash </a> 
+			<tr> <td class="tdaksi"> <a class="btn-beli" href="form_pesanan.php?id=<?php echo $data['id_mobil'];?>"> Pesan </a> 
 									 
 			</td> </tr>
 
