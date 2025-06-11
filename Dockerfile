@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Install PHP-FPM dan ekstensi yang dibutuhkan di Alpine
-RUN apk add --no-cache php81 php81-fpm php81-mysqli
+RUN apk add --no-cache php8 php8-fpm php8-mysqli
 
 # Salin konfigurasi nginx
 COPY nginx.conf /etc/nginx/nginx.conf
