@@ -19,7 +19,7 @@ services:
       - "3307:3306"
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin
     depends_on:
       - db
     ports:
