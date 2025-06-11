@@ -14,4 +14,4 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 
 # Jalankan PHP-FPM dan Nginx secara bersamaan
-CMD php-fpm -d && nginx -g 'daemon off;'
+CMD ["php-fpm8", "-D", "&&", "nginx", "-g", "daemon off;"]
