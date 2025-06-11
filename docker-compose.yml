@@ -1,6 +1,6 @@
 services:
   web:
-    image: yanyanjymv/yanyan-jymv
+    image: yanyanjymv/yanyan-jymv:01
     ports:
       - "8080:80"
     volumes:
