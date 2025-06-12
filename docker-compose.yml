@@ -8,9 +8,7 @@ services:
       - php
 
   php:
-    build:
-      context: .
-      dockerfile: Dockerfile.php
+    image: php
 
   db:
     image: mysql:8
