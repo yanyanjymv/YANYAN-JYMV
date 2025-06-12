@@ -8,7 +8,7 @@ RUN apk add --no-cache php php-fpm php-mysqli
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Salin source code ke direktori root nginx
-COPY . /usr/share/nginx/html
+COPY html/ /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
