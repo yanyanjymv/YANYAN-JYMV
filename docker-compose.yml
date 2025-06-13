@@ -9,7 +9,7 @@ services:
       - php
 
   php:
-    image: php
+    image: php:FPM
 
   db:
     image: mysql:8
