@@ -12,3 +12,6 @@ COPY html/ /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
+
+# Jalankan PHP-FPM dan Nginx secara bersamaan
+CMD php-fpm & nginx -g 'daemon off;'
