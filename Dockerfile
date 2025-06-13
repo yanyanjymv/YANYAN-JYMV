@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Install PHP-FPM dan ekstensi yang dibutuhkan di Alpine
-RUN apk add php php-fpm php-mysqli
+RUN apk add php8 php8-fpm php8-mysqli
 
 # Salin konfigurasi nginx
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -14,4 +14,4 @@ COPY html/ /usr/share/nginx/html
 EXPOSE 80
 
 # Jalankan PHP-FPM dan Nginx secara bersamaan
-CMD php-fpm && nginx -g 'daemon off;'
+CMD php8-fpm && nginx -g 'daemon off;'
