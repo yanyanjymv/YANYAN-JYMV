@@ -25,7 +25,7 @@ jobs:
        id: docker_meta
        uses: docker/metadata-action@v5
        with:
-         images: yanyanjymv/yanyan-jymv:0.1
+         images: yanyanjymv/yanyan-jymv
          flavor: |
            latest=false
          tags: |
