@@ -21,8 +21,7 @@ services:
       context: .  # Menunjukkan bahwa Dockerfile berada di direktori saat ini
       dockerfile: Dockerfile.php  # Nama Dockerfile untuk PHP
     networks:
-      - app-networkn:
-      - "db"
+      - app-network
 
   # Service untuk MySQL
   db:
