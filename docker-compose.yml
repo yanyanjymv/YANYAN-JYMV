@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   # Service untuk Nginx yang melayani aplikasi PHP dan PHP-FPM
   web:
@@ -6,17 +7,22 @@ services:
       - "9090:80"  # Nginx akan mendengarkan di port 80
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf  # Mengonfigurasi Nginx
+      - ./html:/usr/share/nginx/html
     depends_on:
       - "php"
       - "db"  
     networks:
       - app-network
+    
 
 
   php:
-    image: php:fpm  # Gunakan image PHP-FPM dari Docker Hub
+    build:
+      context: .  # Menunjukkan bahwa Dockerfile berada di direktori saat ini
+      dockerfile: Dockerfile.php  # Nama Dockerfile untuk PHP
     networks:
-      - app-network
+      - app-networkn:
+      - "db"
 
   # Service untuk MySQL
   db:
