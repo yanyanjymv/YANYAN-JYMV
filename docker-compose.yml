@@ -9,7 +9,14 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Mengonfigurasi Nginx
     depends_on:
+      - php
       - db  
+    networks:
+      - app-network
+
+
+  php:
+    image: php:fpm  # Gunakan image PHP-FPM dari Docker Hub
     networks:
       - app-network
 
