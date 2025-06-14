@@ -1,21 +1,6 @@
 # Gunakan base image Nginx dari Alpine
 FROM nginx:alpine
 
-# Menambahkan repositori komunitas PHP
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk update
-
-# Install PHP-FPM dan ekstensi PHP yang dibutuhkan
-RUN apk add --no-cache \
- php \
- php-fpm \
- php-mysqli \
- php-pdo \
- php-pdo_mysql \
- php-json \
- supervisor \
- && rm -rf /var/cache/apk/*
-
 # Salin file konfigurasi Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
@@ -28,5 +13,5 @@ COPY supervisord.conf /etc/supervisord.conf
 # Expose port untuk Nginx dan PHP-FPM
 EXPOSE 80 9000 
 
-# Jalankan supervisord untuk mengelola PHP-FPM dan Nginx
-CMD ["/usr/bin/supervisord"]
+# Jalankan Nginx di foreground
+CMD ["nginx", "-g", "daemon off;"]
