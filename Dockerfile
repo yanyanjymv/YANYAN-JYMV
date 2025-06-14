@@ -6,11 +6,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repo
     apk update
 
 # Install PHP-FPM dan ekstensi PHP yang dibutuhkan
-RUN apk add --no-cache \
-    php \
-    php-fpm \
-    php-mysqli \
-    && rm -rf /var/cache/apk/*
+RUN apk add --no-cache php php-fpm php-mysqli
 
 # Salin file konfigurasi Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
