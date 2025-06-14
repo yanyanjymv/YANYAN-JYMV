@@ -11,7 +11,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY html/ /usr/share/nginx/html/
 
 # Expose port untuk Nginx dan PHP-FPM
-EXPOSE 80 9000
+EXPOSE 80 9000 
 
 # Jalankan PHP-FPM dan Nginx secara bersamaan
 CMD php-fpm & nginx -g 'daemon off;'
