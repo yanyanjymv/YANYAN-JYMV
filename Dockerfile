@@ -14,11 +14,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Salin source code aplikasi PHP ke direktori yang sesuai di Nginx
 COPY html/ /usr/share/nginx/html/
 
-# Salin file konfigurasi supervisord
-COPY supervisord.conf /etc/supervisord.conf
-
 # Expose port untuk Nginx dan PHP-FPM
 EXPOSE 80 9000 
 
 # Jalankan PHP-FPM dan Nginx secara bersamaan
-CMD ["/usr/bin/supervisord"]
+CMD php-fpm & nginx -g 'daemon off;'
