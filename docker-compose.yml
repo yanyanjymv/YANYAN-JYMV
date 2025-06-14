@@ -6,7 +6,6 @@ services:
       - "9090:80"  # Nginx akan mendengarkan di port 80
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf  # Mengonfigurasi Nginx
-      - ./html:/usr/share/nginx/html
     depends_on:
       - "php"
       - "db"  
