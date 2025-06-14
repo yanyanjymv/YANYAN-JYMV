@@ -1,6 +1,10 @@
 # Gunakan base image Nginx dari Alpine
 FROM nginx:alpine
 
+# Menambahkan repositori komunitas PHP
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+    apk update
+
 # Install PHP-FPM dan ekstensi PHP yang dibutuhkan
 RUN apk add --no-cache \
     php8 \
