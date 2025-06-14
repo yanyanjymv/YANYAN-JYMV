@@ -1,16 +1,19 @@
+version: "3.8"
+
 services:
+  # Service untuk Nginx yang melayani aplikasi PHP dan PHP-FPM
   web:
-    image: yanyanjymv/yanyan-jymv:01
+    image: yanyanjymv/yanyan-jymv:01  # Menggunakan image yang sudah dibangun di Docker Hub
     ports:
-      - "9080:80"
+      - "9080:80"  # Nginx akan mendengarkan di port 80
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Mengonfigurasi Nginx
     depends_on:
-      - php
+      - db  # Nginx membutuhkan MySQL (db) jika Anda menggunakan database
+    networks:
+      - app-network
 
-  php:
-    image: php8.0
-
+  # Service untuk MySQL
   db:
     image: mysql:8
     environment:
@@ -20,7 +23,10 @@ services:
       - mysql-data:/var/lib/mysql
     ports:
       - "3307:3306"
+    networks:
+      - app-network
 
+  # Service untuk phpMyAdmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     depends_on:
@@ -31,6 +37,12 @@ services:
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: 1234
+    networks:
+      - app-network
 
 volumes:
-  mysql-data: 
+  mysql-data:
+
+networks:
+  app-network:
+    driver: bridge
