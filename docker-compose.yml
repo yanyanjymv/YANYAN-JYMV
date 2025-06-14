@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   # Service untuk Nginx yang melayani aplikasi PHP dan PHP-FPM
   web:
@@ -13,13 +12,13 @@ services:
       - "db"  
     networks:
       - app-network
-    
-
 
   php:
-    build:
-      context: .  # Menunjukkan bahwa Dockerfile berada di direktori saat ini
-      dockerfile: Dockerfile.php  # Nama Dockerfile untuk PHP
+    image: php:-fpm  # Gunakan image PHP-FPM
+    volumes:
+      - ./html:/usr/share/nginx/html  # Menyalin aplikasi PHP ke container PHP
+    entrypoint: |
+      bash -c "docker-php-ext-install mysqli pdo pdo_mysql json && php-fpm"
     networks:
       - app-network
 
