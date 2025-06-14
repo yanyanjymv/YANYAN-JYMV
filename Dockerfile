@@ -2,10 +2,7 @@
 FROM nginx:alpine
 
 # Install PHP-FPM dan ekstensi PHP yang dibutuhkan
-RUN apt-get update && apt-get install -y \
-    php-fpm \
-    php-mysqli \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache php8 php8-fpm php8-mysqli
 
 # Salin file konfigurasi Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
