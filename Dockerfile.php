@@ -1,8 +1,3 @@
-FROM php:fpm-alpine
+FROM php:8.1-fpm
 
-RUN apk update && apk add --no-cache php php-fpm php-mysqli && rm -rf /var/cache/apk/*
-
-EXPOSE 9000
-
-# Start php-fpm
-CMD ["php-fpm-alpine"]
+RUN docker-php-ext-install mysqli
