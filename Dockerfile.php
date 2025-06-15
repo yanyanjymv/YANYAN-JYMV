@@ -1,10 +1,8 @@
-FROM php:fpm
+FROM php:fpm-alpine
 
-# Install PHP extensions
-RUN docker-php-ext-install mysqli pdo pdo_mysql json
+RUN apk update && apk add --no-cache php php-fpm php-mysqli && rm -rf /var/cache/apk/*
 
-# Copy custom php.ini file
-COPY custom-php.ini /usr/local/etc/php/conf.d/
+EXPOSE 9000
 
 # Start php-fpm
-CMD ["php-fpm"]
+CMD ["php-fpm-alpine"]
