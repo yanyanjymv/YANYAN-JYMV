@@ -14,13 +14,15 @@ services:
       - app-network
 
   php:
-    image: php:-fpm  # Gunakan image PHP-FPM
+    build:
+      context: .  # Menentukan konteks build dari direktori ini
+      dockerfile: Dockerfile.php  # Menggunakan Dockerfile.php untuk membangun image PHP-FPM
     volumes:
-      - ./html:/usr/share/nginx/html  # Menyalin aplikasi PHP ke container PHP
-    entrypoint: |
-      bash -c "docker-php-ext-install mysqli pdo pdo_mysql json && php-fpm"
+      - ./html:/usr/share/nginx/html  # Membagikan source code PHP ke container
     networks:
       - app-network
+    depends_on:
+      - "db"
 
   # Service untuk MySQL
   db:
