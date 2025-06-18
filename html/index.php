@@ -28,7 +28,7 @@
             <!-- Navbar -->
             <div class="navbar">
                 <ul>
-                    <li> <a href="login.php"> Login </a></li>
+                    <li> <a href="login.php"> Loginn </a></li>
                 </ul>
             </div> 
             <div class="clear"></div>
