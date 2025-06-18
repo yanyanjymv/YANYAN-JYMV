@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Deploy using rsync to AWS
+      - name: Deploy using sftp to AWS
         uses: appleboy/scp-action@v1
         with:
           username: ${{ secrets.AWS_USERNAME }}
