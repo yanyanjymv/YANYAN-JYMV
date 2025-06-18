@@ -19,7 +19,8 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml"
+          source: "docker-compose.yml Dockerfile.php"
+                  
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
       - name: Run deployment script on AWS 
