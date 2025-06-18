@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Deploy to AWS
 
 on:
   workflow_run:
@@ -13,46 +13,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: List files for debugging
-        run: |
-          ls -R
-
-      - name: Deploy to AWS
+      - name: Deploy using rsync to AWS
         uses: appleboy/scp-action@v1
         with:
-          host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
+          host: ${{ secrets.AWS_HOST }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           source: |
-            DOCKER/docker-compose.yml
-            DOCKER/Dockerfile
-            DOCKER/Dockerfile.php
-            DOCKER/nginx.conf
-            DOCKER/html/*
+            docker-compose.yml
+            Dockerfile
+            Dockerfile.php
+            nginx.conf
+            html/*
+                  
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
-      - name: Run deployment script on AWS
+      - name: Run deployment script on AWS 
         uses: appleboy/ssh-action@v1
         with:
-          host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
+          host: ${{ secrets.AWS_HOST }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           script: |
             cd /home/${{ secrets.AWS_USERNAME }}/DOCKER/
-            
-            # Pastikan file ada di target directory
-            if [ -f "docker-compose.yml" ] && [ -f "Dockerfile" ] && [ -f "Dockerfile.php" ] && [ -f "nginx.conf" ]; then
-              echo "Files are present. Proceeding with deployment."
-            else
-              echo "Error: Missing files."
-              exit 1
-            fi
-            
-            # Menarik image terbaru dari Docker Hub
-            docker pull ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01
-            
-            # Menghentikan container yang berjalan
+            docker pull ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 
             docker-compose down
-            
-            # Menjalankan kembali container dengan konfigurasi baru
             docker-compose up -d
+             
