@@ -13,31 +13,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+<<<<<<< HEAD
       - name: Deploy using sftp to AWS
         uses: appleboy/scp-action@v1
         
+=======
+      - name: Deploy to AWS
+        uses: appleboy/scp-action@v1
+>>>>>>> 8ea8f36 (deploy11)
         with:
-          username: ${{ secrets.AWS_USERNAME }}
           host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: |
-            docker-compose.yml
-            Dockerfile
-            Dockerfile.php
-            nginx.conf
-            html/*
-                  
+          source: "docker-compose.yml Dockerfile.php"
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
-      - name: Run deployment script on AWS 
+      - name: Run deployment script on VPS
         uses: appleboy/ssh-action@v1
         with:
-          username: ${{ secrets.AWS_USERNAME }}
           host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           script: |
             cd /home/${{ secrets.AWS_USERNAME }}/DOCKER/
             docker pull ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 
             docker-compose down
             docker-compose up -d
-             
+            
