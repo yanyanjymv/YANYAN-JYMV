@@ -20,7 +20,11 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           source: |
-            DOCKER/* 
+            docker-compose.yml
+            Dockerfile
+            Dockerfile.php
+            nginx.conf
+            html/*
                   
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
