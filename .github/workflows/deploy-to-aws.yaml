@@ -20,7 +20,7 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           source: |
-            DOCKER/*
+            DOCKER/* 
                   
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
