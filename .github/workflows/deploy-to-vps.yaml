@@ -19,8 +19,12 @@ jobs:
         
 =======
       - name: Deploy to AWS
+<<<<<<< HEAD:.github/workflows/deploy-to-aws.yaml
         uses: appleboy/scp-action@v1
 >>>>>>> 8ea8f36 (deploy11)
+=======
+        uses: appleboy/sftp-action@v1
+>>>>>>> 8a084fb (deploy 13):.github/workflows/deploy-to-vps.yaml
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
@@ -28,7 +32,7 @@ jobs:
           source: "docker-compose.yml Dockerfile.php"
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
-      - name: Run deployment script on VPS
+      - name: Run deployment script on AWS
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.AWS_HOST }}
@@ -39,4 +43,6 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 
             docker-compose down
             docker-compose up -d
-            
+            # docker stop ct-simple-app
+            # docker rm ct-simple-app
+            # docker run -d --name ct-simple-app -p 9080:80 {{secrets.DOCKER_USERNAME}}/simple-app-ci-cd:01
