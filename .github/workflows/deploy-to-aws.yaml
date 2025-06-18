@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Deploy to AWS
 
 on:
   workflow_run:
@@ -19,7 +19,12 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml Dockerfile.php"
+          source: |
+            docker-compose.yml
+            Dockerfile
+            Dockerfile.php
+            nginx.conf
+            html/*
                   
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
