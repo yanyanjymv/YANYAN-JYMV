@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/custom2.css">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css"> 
 </head>
 
 <body>
