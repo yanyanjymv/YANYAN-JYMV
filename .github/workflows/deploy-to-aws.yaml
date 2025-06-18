@@ -33,6 +33,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 
             docker-compose down
             docker-compose up -d
-             docker stop yanyan-jymv
-             docker rm yanyan-jymv
-             docker run -d --name yanyan-jymv -p 9090:80 {{secrets.DOCKER_USERNAME}}/yanyan-jymv:01
+             
