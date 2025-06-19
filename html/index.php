@@ -8,7 +8,7 @@
 <head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alimrugi | Online shop for automobile</title>
+    <title>Alimrugi | Online shop for automobiles</title>
 
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/custom2.css">
