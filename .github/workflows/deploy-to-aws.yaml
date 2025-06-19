@@ -15,7 +15,7 @@ jobs:
 
 
       - name: Deploy using sftp to AWS
-        uses: appleboy/scp-action@v1
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
