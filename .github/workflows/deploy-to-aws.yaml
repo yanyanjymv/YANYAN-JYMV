@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v2
 
 
-      - name: Deploy using sftp to AWS
+      - name: Deploy using scp to AWS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
-          source: "docker-compose.yml,Dockerfile,src/*"
+          source: "docker-compose.yml,Dockerfile.php,src/*"
           target: "/home/${{ secrets.AWS_USERNAME }}/DOCKER/"
 
       - name: Run deployment script on VPS
