@@ -3,14 +3,14 @@ services:
   web:
     image: yanyanjymv/yanyan-jymv:01  # Menggunakan image yang sudah dibangun di Docker Hub
     ports:
-      - "9090:80"  # Nginx akan mendengarkan di port 80 
+      - "9090:80"  # Nginx akan mendengarkan di port 80
+     
 
   php:
     build:
       context: .  # Menentukan konteks build dari direktori ini
       dockerfile: Dockerfile.php
-    volumes:
-      - ./html:/usr/share/nginx/html
+    
 
   # Service untuk MySQL
   db:
