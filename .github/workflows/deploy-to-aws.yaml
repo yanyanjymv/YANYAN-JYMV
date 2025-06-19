@@ -30,8 +30,9 @@ jobs:
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_PRIVATE_KEY }}
           script: |
-            cd /home/${{ secrets.AWS_USERNAME }}/DOCKER/
-            docker pull ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 
+            sudo su 
+            cd /home/{{ secrets.AWS_USERNAME }}/DOCKER/
+            docker pull {{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 
             docker-compose down
             docker-compose up -d
             
