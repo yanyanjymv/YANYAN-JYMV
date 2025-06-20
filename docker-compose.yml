@@ -16,8 +16,6 @@ services:
 
   php:
     image: yanyanjymv/php-app:01
-    volumes:
-      - .src:/var/www/html
 
   # Service untuk MySQL
   db:
