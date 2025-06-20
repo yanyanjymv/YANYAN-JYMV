@@ -9,13 +9,16 @@ services:
       - "9090:80"  # Nginx akan mendengarkan di port 80
 
     volumes:
-      - .src:/var/www/html
+      - .html:/var/www/html
 
     depends_on:
       - "php" 
 
   php:
     image: yanyanjymv/php-app:01
+
+    volumes:
+      - .html:/var/www/html
 
   # Service untuk MySQL
   db:
