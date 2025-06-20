@@ -1,43 +1,62 @@
 name: Build and Push Docker Image
 
 on:
- push:
-   branches:
-     - main
- pull_request:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
- build-image:
-   name: Build and Push Docker Image
-   runs-on: ubuntu-latest
+  build-image:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
     
-   steps:
-     - name: Set up Docker Buildx
-       uses: docker/setup-buildx-action@v3
+    steps:
+      # Set up Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-     - name: Login to Docker Hub
-       uses: docker/login-action@v3
-       with:
-         username: ${{ secrets.DOCKER_USERNAME }}
-         password: ${{ secrets.DOCKER_PASSWORD }}
-        
-     - name: Docker Metadata for Image
-       id: docker_meta
-       uses: docker/metadata-action@v5
-       with:
-         images: yanyanjymv/yanyan-jymv
-         flavor: |
-           latest=false
-         tags: |
-           type=raw,value=01
+      # Login to Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      # Docker Metadata for Image
+      - name: Docker Metadata for Image
+        id: docker_meta
+        uses: docker/metadata-action@v5
+        with:
+          images: yanyanjymv/yanyan-jymv
+          flavor: |
+            latest=false
+          tags: |
+            type=raw,value=01
 
-     - name: Build and Push to Docker Hub
-       id: docker_build
-       uses: docker/build-push-action@v5
-       with:
-         push: true
-         tags: ${{ steps.docker_meta.outputs.tags }}
-         labels: ${{ steps.docker_meta.outputs.labels }}
-         cache-from: type=gha
-         cache-to: type=gha,mode=max
-         platforms: linux/amd64
+      # Build and Push Dockerfile (Main Dockerfile)
+      - name: Build and Push Main Docker Image
+        id: docker_build_main
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile  # Main Dockerfile
+          push: true
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64
+
+      # Build and Push Dockerfile.php Image (PHP Dockerfile)
+      - name: Build and Push PHP Docker Image
+        id: docker_build_php
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile.php  # PHP Dockerfile
+          push: true
+          tags: yanyanjymv/yanyan-jymv:php-01  # Specify a different tag for the PHP image
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          platforms: linux/amd64

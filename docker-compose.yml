@@ -7,9 +7,7 @@ services:
      
 
   php:
-    build:
-      context: .  # Menentukan konteks build dari direktori ini
-      dockerfile: Dockerfile.php
+    image: yanyanjymv/yanyan-jymv:php-01
     
 
   # Service untuk MySQL
