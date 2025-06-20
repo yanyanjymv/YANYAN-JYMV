@@ -23,11 +23,11 @@ jobs:
 
       - name: Build PHP Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv -f php/Dockerfile .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv -f php/Dockerfile 
           
       - name: Build Nginx Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv -f nginx/Dockerfile .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv -f nginx/Dockerfile
 
       - name: Docker Metadata for Images
         id: docker_meta
