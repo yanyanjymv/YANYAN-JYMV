@@ -4,7 +4,7 @@ version: '3.8'
 services:
   # Service untuk Nginx yang melayani aplikasi PHP dan PHP-FPM
   web:
-    image: yanyanjymv/nginx-app:01  # Menggunakan image yang sudah dibangun di Docker Hub
+    image: yanyanjymv/yanyan-jymv:01  # Menggunakan image yang sudah dibangun di Docker Hub
     ports:
       - "9090:80"  # Nginx akan mendengarkan di port 80
 
