@@ -7,8 +7,6 @@ services:
     image: yanyanjymv/nginx-app:01  # Menggunakan image yang sudah dibangun di Docker Hub
     ports:
       - "9090:80"  # Nginx akan mendengarkan di port 80
-    volumes:
-      - shared-volume:/usr/share/nginx/html
 
     depends_on:
       - "php" 
