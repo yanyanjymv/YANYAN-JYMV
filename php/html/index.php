@@ -8,11 +8,11 @@
 <head> 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alimrugi | Online shop for automobiles</title>
+    <title>Alimrugi | Online shop for automobile</title>
 
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/custom2.css">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -21,7 +21,9 @@
         <div class="center">
             <!-- Logo -->
             <div class="logo">
-                <img src="img/alimrugi.jpg">
+                <a href="index.php">
+    					<img src="img/alimrugi.jpg" alt="Logo Alimrugi">
+  					</a>
             </div>
             <!-- Logo -->
 

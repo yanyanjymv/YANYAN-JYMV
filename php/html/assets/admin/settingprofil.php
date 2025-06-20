@@ -32,7 +32,7 @@
 				<div class="centeradmin">
 				
 				<div class="judul">
-					<a href="#"> Admin <span> CPanel </span> </a>
+					<a href="index.php"> Home </span> </a>
 				</div>
 
 
@@ -63,7 +63,7 @@
 			<div id="menuadmin">
 			
 				<div class="menutitle">
-					 <a href="#"> CPANEL </a> 
+					 <a> MENU </a> 
 				</div>
 					<div class="menubody">
 						
@@ -71,7 +71,7 @@
 							<li> <a href="pembayaran.php"> Pembayaran </a> </li><br>
 							<li> <a href="penawaran_mobil.php"> Penawaran </a> </li><br>
 							<li> <a href="laporan.php"> Laporan </a> </li><br>
-							<li> <a class="active" href="#"> Setting </a> </li>
+							<li> <a class="active" href="#"> Setting Profil </a> </li>
 						
 					</div>
 

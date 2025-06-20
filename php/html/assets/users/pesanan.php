@@ -162,9 +162,12 @@ a:hover {
             <?php
             $no = 1;
             while ($pesanan = mysqli_fetch_assoc($pesananQuery)):
-                $id_mobil = (int)$pesanan['id_mobil'];
-                $mobilQuery = mysqli_query($konekdb, "SELECT nm_mobil, harga_mobil, gambar FROM tb_mobil WHERE id_mobil = $id_mobil");
-                $mobil = mysqli_fetch_assoc($mobilQuery);
+                $id_mobil = $pesanan['id_mobil']; // jangan cast ke int
+$id_mobil_escaped = mysqli_real_escape_string($konekdb, $id_mobil);
+
+$mobilQuery = mysqli_query($konekdb, "SELECT nm_mobil, harga_mobil, gambar FROM tb_mobil WHERE id_mobil = '$id_mobil_escaped'");
+$mobil = mysqli_fetch_assoc($mobilQuery);
+
 
                 $status = strtolower($pesanan['status']);
                 $tanggalPesan = $pesanan['tanggal_pesan'];

@@ -208,7 +208,7 @@ $pesananQuery = mysqli_query($konekdb, "SELECT * FROM tb_pesanan WHERE id_user='
                             if (in_array($statusNow, $allowedUpload)): ?>
                                 <form method="post" enctype="multipart/form-data" style="margin:0;">
                                     <input type="hidden" name="id_pesanan" value="<?php echo $pesanan['id_pesanan']; ?>" />
-                                    <input type="file" name="bukti_bayar" accept="image/*" required />
+                                    <input type="file" name="bukti_bayar" accept="image/*" required /><br><br>
                                     <button type="submit" name="upload_bukti" class="btn-upload">Upload Bukti</button>	
                                 </form>
                             <?php else: ?>

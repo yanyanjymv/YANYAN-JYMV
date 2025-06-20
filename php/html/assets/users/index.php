@@ -1,6 +1,6 @@
-<?php
-	session_start();
+	<?php
 		include '../../koneksi.php';
+		session_start();
 		if($_SESSION['roles'] == "user"){
 
 			$id_show = $_SESSION['id_user'] ;
@@ -154,7 +154,8 @@
 			</td> </tr>
 			<tr> <td class="tdspek"> <?php echo $data['spek_mobil']; ?> </td> </tr>
 			<tr> <td class="tdharga"> RP.<?php echo number_format($data['harga_mobil'],0,",",".") ;?>  </td> </tr>
-			<tr> <td class="tdaksi"> <a class="btn-beli" href="form_pesanan.php?id=<?php echo $data['id_mobil'];?>"> Pesan </a> 
+			<tr> <td class="tdaksi"> <a class	="btn-beli" href="form_pesanan.php?id_mobil=<?= urlencode($data['id_mobil']) ?>">Pesan</a> 
+			
 									 
 			</td> </tr>
 

@@ -40,7 +40,7 @@ $jml_hal = ceil($totalData / $batas);
 <div id="headeradmin">				
     <div class="centeradmin">				
         <div class="judul">
-            <a href="#"> Admin <span> CPanel </span> </a>
+            <a href="index.php"> Home </span> </a>
         </div>
 
         <div class="adminbar">
@@ -58,14 +58,14 @@ $jml_hal = ceil($totalData / $batas);
 
 <div id="menuadmin">
     <div class="menutitle">
-         <a href="#"> CPANEL </a> 
+         <a> MENU </a> 
     </div>
     <div class="menubody">
         <li><a href="datamobil.php"> Data Mobil </a></li><br>
         <li><a class="active" href="#"> Pembayaran </a></li><br>
         <li><a href="penawaran_mobil.php"> Penawaran </a></li><br>	
         <li><a href="laporan.php"> Laporan </a></li><br>
-        <li><a href="settingprofil.php"> Setting </a></li>
+        <li><a href="settingprofil.php"> Setting Profil </a></li>
     </div>
 </div>
 
@@ -124,14 +124,14 @@ $jml_hal = ceil($totalData / $batas);
                     <td> <?php echo $data['status']; ?> </td>
                     <td>
                         <?php if ($buktiBayar && file_exists("../../uploads/bukti_bayar/".$buktiBayar)): ?>
-                            <a href="../../uploads/bukti_bayar/<?php echo urlencode($buktiBayar); ?>" target="_blank" class="btn-2 btn-sm">Lihat Bukti</a>
+                            <a href="../../uploads/bukti_bayar/<?php echo urlencode($buktiBayar); ?>" target="_blank" class="btn-2 btn-sm">Lihat Bukti</a><br><br>
                         <?php else: ?>
                             <span style="color:gray;">Tidak ada bukti</span>
                         <?php endif; ?>
 
                         <?php if ($status != 'lunas'): ?>
                             <a href="confirm_pembayaran.php?id=<?php echo $data['id_pesanan']; ?>" 
-                               onclick="return confirm('Konfirmasi pembayaran untuk pembeli <?php echo htmlspecialchars($data2['nama_pemesan']); ?>?');" 
+                               onclick="return confirm('Konfirmasi pembayaran untuk pembeli <?php echo htmlspecialchars($data2['nama_pemesan']); ?>?');"
                                class="btn-confirm">Konfirmasi</a>
                         <?php else: ?>
                             <span style="color:green; font-weight:bold; margin-left:10px;">LUNAS</span>
