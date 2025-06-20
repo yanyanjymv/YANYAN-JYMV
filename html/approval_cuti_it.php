@@ -39,7 +39,7 @@ $level = $_SESSION['level'];
         }
     }
         ?> 
-            <li><a href="form_cuti.php"><i class="fas fa-calendar-alt"></i> Ajukan Cuti</a></li>
+            <li><a href="form_cuti.php"><i class="fas fa-calendar-alt"></i> Ajukan Cutii</a></li>
             <li><a href="form_izin.php"><i class="fas fa-user-clock"></i> Ajukan Izin Kerja</a></li>
             <li><a href="status_cuti.php"><i class="fas fa-list-alt"></i> Status Cuti</a></li>
             <li><a href="status_izin.php"><i class="fas fa-clock"></i> Status Izin Kerja</a></li>
