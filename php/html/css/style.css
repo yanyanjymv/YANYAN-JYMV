@@ -1,39 +1,49 @@
-/* CSS HEADER */
-header {
-	border-bottom: 0.5px solid #e7e7e7;
-	
-}
-.logo img  {
-	width: 200px;
-	margin-top: -10px;
-	
-}
-.navbar-default {
-	
+/* Form styling */
+form {
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.lazacar{
-	font-family: Lato;
-	
+label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
 }
 
-.navbar .nav > li > a:focus,
-.navbar .nav > li > a:hover {
-	background-color: #fff;
-	border-top:2px solid cyan;
-  	color: #000;
-
-}
-.dropdown li{
-	font-family: ;
-
-}
-.navbar-brand {
-	background-color: cyan ;
-	border-top: 1px solid #fff ;
-		
-}
-.navbar-header {
-	
+input[type="date"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Pesan Sukses */
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
