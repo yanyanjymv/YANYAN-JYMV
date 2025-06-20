@@ -17,4 +17,4 @@ COPY html/ /var/www/html/
 EXPOSE 80
 
 # Menjalankan PHP-FPM dan Nginx dalam satu container
-CMD [php-fpm8.1 & "nginx", "-g", "daemon off;"]
+CMD sh -c "php-fpm8 -D && nginx -g 'daemon off;'"
