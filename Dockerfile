@@ -1,7 +1,7 @@
 FROM php:8.1-fpm-alpine 
 
 # Install PHP-FPM dan Nginx
-RUN apk add --no-cache nginx supervisor
+RUN apk add --no-cache nginx supervisor mysqli
 
 # Salin konfigurasi Nginx dan supervisord
 COPY nginx.conf /etc/nginx/nginx.conf
