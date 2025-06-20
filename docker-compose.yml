@@ -8,11 +8,6 @@ services:
     ports:
       - "9090:80"  # Nginx akan mendengarkan di port 80
 
-    depends_on:
-      - "php" 
-
-  php:
-    image: yanyanjymv/php-app:01
 
 
   # Service untuk MySQL
@@ -42,6 +37,5 @@ services:
 
 volumes:
   mysql-data:
-  shared-volume:
 
 

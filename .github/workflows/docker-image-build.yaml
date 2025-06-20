@@ -1,73 +1,43 @@
 name: Build and Push Docker Image
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+ push:
+   branches:
+     - main
+ pull_request:
 
 jobs:
-  build-image:
-    name: Build and Push Docker Image
-    runs-on: ubuntu-latest
+ build-image:
+   name: Build and Push Docker Image
+   runs-on: ubuntu-latest
+    
+   steps:
+     - name: Set up Docker Buildx
+       uses: docker/setup-buildx-action@v3
 
-    steps:
-      # Setup Docker Buildx
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+     - name: Login to Docker Hub
+       uses: docker/login-action@v3
+       with:
+         username: ${{ secrets.DOCKER_USERNAME }}
+         password: ${{ secrets.DOCKER_PASSWORD }}
+        
+     - name: Docker Metadata for Image
+       id: docker_meta
+       uses: docker/metadata-action@v5
+       with:
+         images: yanyanjymv/yanyan-jymv
+         flavor: |
+           latest=false
+         tags: |
+           type=raw,value=01
 
-      # Login ke Docker Hub
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      # Docker Metadata untuk PHP Image
-      - name: Docker Metadata for PHP Image
-        id: php_meta
-        uses: docker/metadata-action@v5
-        with:
-          images: yanyanjymv/php-app
-          flavor: |
-            latest=false
-          tags: |
-            type=raw,value=01
-
-      # Docker Metadata untuk Nginx Image
-      - name: Docker Metadata for Nginx Image
-        id: nginx_meta
-        uses: docker/metadata-action@v5
-        with:
-          images: yanyanjymv/nginx-app
-          flavor: |
-            latest=false
-          tags: |
-            type=raw,value=01
-
-      # Build dan Push PHP Image ke Docker Hub
-      - name: Build and Push PHP Docker image
-        id: php_build
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: ${{ steps.php_meta.outputs.tags }}
-          labels: ${{ steps.php_meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          platforms: linux/amd64
-          contex: .
-          file: ./php/Dockerfile
-
-      # Build dan Push Nginx Image ke Docker Hub
-      - name: Build and Push Nginx Docker image
-        id: nginx_build
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: ${{ steps.nginx_meta.outputs.tags }}
-          labels: ${{ steps.nginx_meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          platforms: linux/amd64
-          file: ./nginx/Dockerfile
+     - name: Build and Push to Docker Hub
+       id: docker_build
+       uses: docker/build-push-action@v5
+       with:
+         push: true
+         tags: ${{ steps.docker_meta.outputs.tags }}
+         labels: ${{ steps.docker_meta.outputs.labels }}
+         cache-from: type=gha
+         cache-to: type=gha,mode=max
+         platforms: linux/amd64
