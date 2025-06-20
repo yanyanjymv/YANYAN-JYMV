@@ -7,9 +7,8 @@ services:
     image: yanyanjymv/nginx-app:01  # Menggunakan image yang sudah dibangun di Docker Hub
     ports:
       - "9090:80"  # Nginx akan mendengarkan di port 80
-
     volumes:
-      - .html:/var/www/html
+      - shared-volume:/usr/share/nginx/html
 
     depends_on:
       - "php" 
@@ -18,7 +17,7 @@ services:
     image: yanyanjymv/php-app:01
 
     volumes:
-      - .html:/var/www/html
+      - shared-volume:/var/www/html
 
   # Service untuk MySQL
   db:
@@ -47,5 +46,8 @@ services:
 
 volumes:
   mysql-data:
+
+  volumes:
+  shared-volume:
 
 
