@@ -68,5 +68,3 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
-          context: ./  # Menggunakan konteks build dari root direktori
-          file: ./nginx/Dockerfile  # Menentukan path Dockerfile Nginx yang benar
