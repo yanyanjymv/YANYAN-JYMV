@@ -56,8 +56,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
-          context: .  # Konteks build dari direktori saat ini
-          file: ./php/Dockerfile  # Dockerfile PHP
+          context: .  # Konteks build dari direktori saat ini (DOCKER/)
+          file: ./php/Dockerfile  # Dockerfile PHP di folder php/
 
       # Build dan Push Nginx Image ke Docker Hub
       - name: Build and Push Nginx Docker image
@@ -70,5 +70,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
-          context: .  # Konteks build dari direktori saat ini
-          file: ./nginx/Dockerfile  # Dockerfile Nginx
+          context: .  # Konteks build dari direktori saat ini (DOCKER/)
+          file: ./nginx/Dockerfile  # Dockerfile Nginx di folder nginx/
