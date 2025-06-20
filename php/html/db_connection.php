@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";
+$host = "db";
 $user = "root";  
 $password = "1234";  
 $database = "cuti_online";
