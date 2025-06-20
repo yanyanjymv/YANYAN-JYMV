@@ -5,7 +5,7 @@ FROM php:8.1-fpm
 RUN docker-php-ext-install mysqli
 
 # Salin source code aplikasi PHP ke direktori PHP-FPM
-COPY html/ /var/www/html/
+COPY php/html/ /var/www/html/
 
 # Expose port PHP-FPM (biasanya 9000)
 EXPOSE 9000
