@@ -7,6 +7,8 @@ RUN docker-php-ext-install mysqli php-xml php-mbstring
 # Stage 2: Nginx + PHP-FPM
 FROM nginx:alpine
 
+# Install PHP-FPM di dalam Nginx container
+RUN apk --no-cache add php8.1-fpm php8.1-mysqli php8.1-mbstring php8.1-xml php8.1-opcache
 
 # Salin file konfigurasi Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
