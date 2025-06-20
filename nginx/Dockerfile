@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Salin file konfigurasi Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Expose port untuk Nginx
 EXPOSE 80
