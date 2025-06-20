@@ -1,18 +1,21 @@
 version: '3.8'
 
-
 services:
-  # Service untuk Nginx yang melayani aplikasi PHP dan PHP-FPM
   web:
-    image: yanyanjymv/yanyan-jymv:01  # Menggunakan image yang sudah dibangun di Docker Hub
+    image: yanyanjymv/yanyan-jymv:01  # Image sudah dibuild & push ke Docker Hub
     ports:
-      - "9090:80"  # Nginx akan mendengarkan di port 80
+      - "9090:80"  # Akses web melalui localhost:9090
+    depends_on:
+      - db  # Pastikan database siap sebelum PHP mengakses
+    environment:
+      DB_HOST: db
+      DB_NAME: alimrugi
+      DB_USER: root
+      DB_PASSWORD: 1234
 
-
-
-  # Service untuk MySQL
   db:
     image: mysql:8
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: alimrugi
@@ -20,9 +23,7 @@ services:
       - mysql-data:/var/lib/mysql
     ports:
       - "3307:3306"
-  
 
-  # Service untuk phpMyAdmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     depends_on:
@@ -34,8 +35,5 @@ services:
       PMA_USER: root
       PMA_PASSWORD: 1234
 
-
 volumes:
   mysql-data:
-
-
