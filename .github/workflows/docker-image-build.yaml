@@ -23,19 +23,19 @@ jobs:
 
       - name: Build PHP Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/php-app:latest -f php/Dockerfile .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:02 -f php/Dockerfile .
           
       - name: Build Nginx Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx-app:latest -f nginx/Dockerfile .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01 -f nginx/Dockerfile .
 
       - name: Docker Metadata for Images
         id: docker_meta
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.DOCKER_USERNAME }}/php-app
-            ${{ secrets.DOCKER_USERNAME }}/nginx-app
+            ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv
+            ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv
           flavor: |
             latest=false
           tags: |
@@ -43,8 +43,8 @@ jobs:
 
       - name: Push PHP Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01
+          docker push ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:02
 
       - name: Push Nginx Docker image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:02
+          docker push ${{ secrets.DOCKER_USERNAME }}/yanyan-jymv:01
