@@ -56,6 +56,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
+          contex:  .
+          file: /php/Dockerfile
 
       # Build dan Push Nginx Image ke Docker Hub
       - name: Build and Push Nginx Docker image
@@ -68,3 +70,5 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
+          contex:  .
+          file: /nginx/Dockerfile
