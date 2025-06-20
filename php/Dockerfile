@@ -1,5 +1,5 @@
 # Gunakan base image PHP
-FROM php:8.0.30-fpm 
+FROM php:fpm 
 
 # Install ekstensi PHP yang dibutuhkan
 RUN docker-php-ext-install mysqli
