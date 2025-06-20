@@ -16,12 +16,6 @@ COPY nginx.conf /etc/nginx/nginx.conf
 # Salin source code aplikasi PHP ke direktori yang sesuai di container Nginx
 COPY html/ /var/www/html/
 
-# Salin PHP dari stage php-fpm
-COPY --from=php-fpm /usr/src/php /usr/src/php
-
-# Salin konfigurasi php-fpm untuk Nginx
-COPY --from=php-fpm /etc/php /etc/php
-
 # Expose port untuk Nginx
 EXPOSE 80
 
