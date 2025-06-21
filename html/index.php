@@ -40,7 +40,7 @@
     <!-- SLIDER -->
     <div id="slider">
         <div class="center">
-            <h1> Selamat Datang di Alim Rugi Silahkan pilih mobil </h1>
+            <h1> Selamat Datang di Alim Rugi Silahkan pilih mobil yang anda cintai </h1>
             <h2> Jual Beli Mobil Terbaik Secara Online</h2>
             <br>
             <h3> Untuk Memulai Silahkan Mendaftar Terlebih Dahulu </h3>
