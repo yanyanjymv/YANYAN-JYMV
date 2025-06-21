@@ -1,6 +1,9 @@
 name: Deploy to AWS
 
 on:
+  pull_request:
+      -main
+      
   workflow_run:
     workflows: ["Build and Push Docker Image"]
     types:
