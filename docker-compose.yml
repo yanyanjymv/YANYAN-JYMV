@@ -2,16 +2,11 @@ version: '3.8'
 
 services:
   web:
-    image: yanyanjymv/yanyan-jymv:01  # Image sudah dibuild & push ke Docker Hub
+    image: yanyanjymv/yanyan-jymv:01  
     ports:
-      - "9090:80"  # Akses web melalui localhost:9090
+      - "9090:80"  
     depends_on:
-      - db  # Pastikan database siap sebelum PHP mengakses
-    environment:
-      DB_HOST: db
-      DB_NAME: alimrugi
-      DB_USER: root
-      DB_PASSWORD: 1234
+      - db  
 
   db:
     image: mysql:8
